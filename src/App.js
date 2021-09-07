@@ -1,40 +1,23 @@
 import React from 'react';
 import {
   ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import {theme} from './Config';
+import Routing from './Routes/Routes';
+import NavBar from './Components/NavBar/Index';
+import ProvideAppContext from './AppContext';
+import { useMsal, MsalProvider } from "@azure/msal-react";
 
-function App() {
+
+function App({pca}) {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+      <MsalProvider instance={pca}>
+      <ProvideAppContext>
+      <NavBar />
+      <Routing />
+      </ProvideAppContext>
+      </MsalProvider>
     </ChakraProvider>
   );
 }
