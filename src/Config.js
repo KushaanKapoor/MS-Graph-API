@@ -13,7 +13,9 @@ const config = {
   scopes: [
     'user.read',
     'mailboxsettings.read',
-    'calendars.readwrite'
+    'calendars.readwrite',
+    'Mail.Read',
+    'Mail.ReadBasic'
   ]
 };
 export default config;

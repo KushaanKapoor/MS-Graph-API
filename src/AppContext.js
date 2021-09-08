@@ -20,7 +20,8 @@ import React, {
     signOut: undefined,
     displayError: undefined,
     clearError: undefined,
-    authProvider: undefined
+    authProvider: undefined,
+    authenticated: undefined,
   });
   
   export function useAppContext() {
@@ -32,6 +33,8 @@ import React, {
     const [user, setUser] = useState(undefined);
     const [profilePhoto, setPhoto] = useState(undefined);
     const [error, setError] = useState(undefined);
+    const [authenticated, setAuthenticated] = useState(undefined);
+    const [loading, setLoading] = useState(true);
   
     const displayError = (message, debug) => {
       setError({message, debug});
@@ -50,18 +53,21 @@ import React, {
             const account = msal.instance.getActiveAccount();
             if (account) {
               // Get the user from Microsoft Graph
-              const user = await getUser(authProvider);
+              
+
+              const user = await getUser(authProvider)
               console.log('user data', user);
               setUser({
                 displayName: user.displayName || '',
                 email: user.mail || user.userPrincipalName || '',
                 timeFormat: user.mailboxSettings?.timeFormat || '',
                 timeZone: user.mailboxSettings?.timeZone || 'UTC'
-              });
+              })
 
               const photo = await getPhoto(authProvider);
               console.log('photo effect',photo);
               setPhoto(URL.createObjectURL(photo));
+              
 
             }
           } catch (err) {
@@ -70,16 +76,16 @@ import React, {
         }
       };
       checkUser();
-    });
+    },[]);
 
-    const authProvider = new AuthCodeMSALBrowserAuthenticationProvider(
-        msal.instance,
-        {
-          account: msal.instance.getActiveAccount(),
-          scopes: config.scopes,
-          interactionType: InteractionType.Popup
-        }
-      );  
+      const authProvider = new AuthCodeMSALBrowserAuthenticationProvider(
+      msal.instance,
+      {
+        account: msal.instance.getActiveAccount(),
+        scopes: config.scopes,
+        interactionType: InteractionType.Popup
+      }
+    );  
       
     const signIn = async () => {
       // TODO
@@ -88,14 +94,13 @@ import React, {
       const result = await msal.instance.loginPopup({
         scopes: config.scopes,
         prompt: 'select_account'
-      });
+      })
     
     //   console.log('result', result);
       // TEMPORARY: Show the access token
     //   displayError('Access token retrieved', result.accessToken);
     const user = await getUser(authProvider);
-    console.log('user data', user);
-    
+    console.log('auth providerr', authProvider);
     setUser({
       displayName: user.displayName || '',
       email: user.mail || user.userPrincipalName || '',
@@ -107,7 +112,7 @@ import React, {
     console.log('photo',photo);
     console.log('photo blober',URL.createObjectURL(photo));
     setPhoto(URL.createObjectURL(photo));
-
+    // setLoading(false);
 
     };
   
@@ -115,6 +120,7 @@ import React, {
       // TODO
       await msal.instance.logoutPopup();
       setUser(undefined);
+      setAuthenticated(undefined);
       console.log('clicked log out')
     };
   
@@ -126,7 +132,9 @@ import React, {
       signOut,
       displayError,
       clearError,
-      authProvider
+      authProvider,
+      authenticated,
+      loading
     };
   }
 
