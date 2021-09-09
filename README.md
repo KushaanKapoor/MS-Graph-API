@@ -54,13 +54,13 @@ To run the completed project in this folder, you need the following:
 
 1. Landing Page
 
-![A screenshot of the Landing Page](/README/Screenshots/landing-page.png)
+![A screenshot of the Landing Page](/README/Screenshots/landing-page.PNG)
 
 2. Logged In
 
-![A screenshot of the Landing Page after Logging In](/README/Screenshots/login.png)
+![A screenshot of the Landing Page after Logging In](/README/Screenshots/login.PNG)
 
 3. Email Search Dashboard
 
-![A screenshot of the User Email Search Dashboard](/README/Screenshots/Dashboard-search.png)
+![A screenshot of the User Email Search Dashboard](/README/Screenshots/Dashboard-search.PNG)
 
