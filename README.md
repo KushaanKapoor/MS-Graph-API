@@ -48,3 +48,19 @@ To run the completed project in this folder, you need the following:
     ```
 
 1. Open a browser and browse to `http://localhost:3000'
+
+
+# App Screenshots
+
+1. Landing Page
+
+![A screenshot of the Landing Page](/README/Screenshots/landing-page.png)
+
+2. Logged In
+
+![A screenshot of the Landing Page after Logging In](/README/Screenshots/login.png)
+
+3. Email Search Dashboard
+
+![A screenshot of the User Email Search Dashboard](/README/Screenshots/Dashboard-search.png)
+
