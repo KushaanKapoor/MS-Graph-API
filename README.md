@@ -31,7 +31,7 @@ To run the completed project in this folder, you need the following:
 
 ## Configure the project
 
-1. Edit the `./ms-Graph/.env` file and make the following changes.
+1. Edit the `./MS-Graph-API/.env` file and make the following changes.
     1. Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
 2. In your command-line interface (CLI), navigate to the `ms-graph` directory and run the following command to install requirements.
 
