@@ -25,15 +25,20 @@ To run the completed project in this folder, you need the following:
 
     ![A screenshot of the Register an application page](/README/Images/aad-register-an-app.png)
 
-1. Choose **Register**. On the **React Graph Tutorial** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+1. Choose **Register**. On the **MS-Graph-API** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
 
     ![A screenshot of the application ID of the new app registration](/README/Images/aad-application-id.png)
+
+
+1. Goto **Authentication** and grant Access Tokens access.
+
+    ![A screenshot of the implicit access](/README/Images/aad-implicit-grant.png)
 
 ## Configure the project
 
 1. Edit the `./MS-Graph-API/.env` file and make the following changes.
     1. Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
-2. In your command-line interface (CLI), navigate to the `ms-graph` directory and run the following command to install requirements.
+2. In your command-line interface (CLI), navigate to the `MS-Graph-API` directory and run the following command to install requirements.
 
     ```Shell
     yarn install
