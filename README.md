@@ -14,7 +14,7 @@ To run the completed project in this folder, you need the following:
 
 1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations** under **Manage**.
 
-    ![A screenshot of the App registrations ](/README/images/aad-portal-app-registrations.png)
+    ![A screenshot of the App registrations ](/README/Images/aad-portal-app-registrations.png)
 
    
 1. Select **New registration**. On the **Register an application** page, set the values as follows.
@@ -23,11 +23,11 @@ To run the completed project in this folder, you need the following:
     - Set **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts**.
     - Under **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and set the value to `http://localhost:3000`.
 
-    ![A screenshot of the Register an application page](/README/images/aad-register-an-app.png)
+    ![A screenshot of the Register an application page](/README/Images/aad-register-an-app.png)
 
 1. Choose **Register**. On the **React Graph Tutorial** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
 
-    ![A screenshot of the application ID of the new app registration](/README/images/aad-application-id.png)
+    ![A screenshot of the application ID of the new app registration](/README/Images/aad-application-id.png)
 
 ## Configure the project
 
