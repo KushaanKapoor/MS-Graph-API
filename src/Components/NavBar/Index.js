@@ -23,7 +23,7 @@ import { useAppContext } from '../../AppContext';
 
 const Links = [
   { name: 'Dashboard', path: '/Dashboard' },
-  { name: 'Search', path: '/' },
+  // { name: 'Search', path: '/' },
 ];
 
 const NavLink = ({ children, path }) => (
@@ -50,7 +50,7 @@ export default function NavBar() {
 
   // const photo = URL.createObjectURL(app.profilePhoto);
   return (
-    <div style={{ position: '-webkit-sticky', position: 'sticky', top: 0 }}>
+    <div style={{ position: '-webkit-sticky', position: 'sticky', top: 0, zIndex:1 }}>
       <Box bg={useColorModeValue('blue.300', 'blue.400')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
@@ -62,9 +62,9 @@ export default function NavBar() {
           />
           <HStack spacing={8} alignItems={'center'}>
             {isLargerThan768 ? (
-              <Box>Microsoft Graph App</Box>
+              <Box><Link href={'/'}>Microsoft Graph App</Link></Box>
             ) : (
-              <Box>Graph App</Box>
+              <Box><Link href={'/'}>Graph App</Link></Box>
             )}
             <HStack
               as={'nav'}

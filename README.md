@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# How to run the completed project
 
-In the project directory, you can run:
+## Prerequisites
 
-### `yarn start`
+To run the completed project in this folder, you need the following:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Node.js](https://nodejs.org) installed on your development machine. 
+- Either a personal Microsoft account with a mailbox on Outlook.com, or a Microsoft work or school account.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Register a web application with the Azure Active Directory admin center
 
-### `yarn test`
+1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations** under **Manage**.
 
-### `yarn build`
+    ![A screenshot of the App registrations ](/README/images/aad-portal-app-registrations.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    - Set **Name** to `Your Project Name`. Here it is `MS-Graph-API`.
+    - Set **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts**.
+    - Under **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and set the value to `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ![A screenshot of the Register an application page](/README/images/aad-register-an-app.png)
 
-### `yarn eject`
+1. Choose **Register**. On the **React Graph Tutorial** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    ![A screenshot of the application ID of the new app registration](/README/images/aad-application-id.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Configure the project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Edit the `./ms-Graph/.env` file and make the following changes.
+    1. Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
+2. In your command-line interface (CLI), navigate to the `ms-graph` directory and run the following command to install requirements.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    ```Shell
+    yarn install
+    ```
 
-## Learn More
+## Run the project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Run the following command in your CLI to start the application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```Shell
+    yarn start
+    ```
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Open a browser and browse to `http://localhost:3000'

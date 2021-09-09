@@ -4,12 +4,15 @@ import {
     Container,
     Heading,
     Stack,
+    Link,
     Text,
     Button,
   } from '@chakra-ui/react';
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from '@azure/msal-react';
 import { Illustration } from '../../Assets/Illustrations/Illustration';
 import {useAppContext} from '../../AppContext';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+
 
   function Main(props)
   {
@@ -32,15 +35,19 @@ import {useAppContext} from '../../AppContext';
               made easy.
             </Text>
           </Heading>
+          <UnauthenticatedTemplate>
           <Text color={'gray.500'} maxW={'3xl'}>
             Never miss an email. Keep track of your
             meetings and receive smart reminders in appropriate times.
           </Text>
+          </UnauthenticatedTemplate>
           <Stack spacing={6} direction={'row'}>
           <AuthenticatedTemplate>
           <div>
-            <h4>Welcome {app.user?.displayName || ''}!</h4>
-            <p>Use the navigation bar at the top of the page to get started.</p>
+            <Text color={'gray.500'}>Welcome {app.user?.displayName || ''}!</Text>
+            <Text>Go to your <Link href="/Dashboard" color={'blue.400'}>
+  Dashboard <ExternalLinkIcon mx="2px" />
+</Link> to get started.</Text>
           </div>
         </AuthenticatedTemplate>
         <UnauthenticatedTemplate>

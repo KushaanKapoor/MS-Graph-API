@@ -56,9 +56,7 @@ function Mail({mailData}) {
             overflow={'hidden'}>
             <Stack>
               <Title title={'Mail'}/>
-              <Text color={'white'}>
               {<MailContent content={item.body.content}/>}
-              </Text>
             </Stack>
             <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
               <Stack direction={'column'} spacing={0} fontSize={'sm'}>

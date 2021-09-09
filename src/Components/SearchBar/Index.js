@@ -10,9 +10,15 @@ import {
 import { SearchIcon } from '@chakra-ui/icons';
 
 function SearchBar(props) {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState('');
   const [isLoading, setLoading] = useState(false);
   const handleChange = (event) => setInput(event.target.value)
+  const handleKeyPress = (event) => {
+      if (event.key === "Enter") {
+        setInput(event.target.value);
+        props.searchEmail(input);
+      }
+  }
 
   return (
     <Stack spacing={4} marginY={6}>
@@ -22,6 +28,7 @@ function SearchBar(props) {
           children={<SearchIcon color="gray.300" />}
         />
         <Input placeholder="Search" value={input}
+            onKeyPress={handleKeyPress}
         onChange={handleChange}/>
     <Button
     colorScheme="blue.500"
